@@ -11,17 +11,17 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface DokterDao {
     @Insert
-    suspend fun  insertDokter(dokter: Dokter)
+    suspend fun insertDokter(dokter: Dokter)
 
-    @Query ("SELECT * FROM dokter ORDER BY nama ASC")
-    fun getAllDokter() : Flow<List<Dokter>>
+    @Query("SELECT * FROM dokter ORDER BY nama ASC")
+    fun getAllDokter(): Flow<List<Dokter>>
 
-    @Query ("SELECT * FROM dokter WHERE id = :id")
-    fun getDokter(id:String) : Flow<Dokter>
+    @Query("SELECT * FROM dokter WHERE id = :id")
+    fun getDokter(id: String): Flow<Dokter>
 
     @Delete
     suspend fun deleteDokter(dokter: Dokter)
 
     @Update
-    suspend fun updateDokter (dokter: Dokter)
+    suspend fun updateDokter(dokter: Dokter)
 }
