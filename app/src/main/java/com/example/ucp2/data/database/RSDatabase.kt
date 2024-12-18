@@ -21,7 +21,7 @@ abstract class RSDatabase : RoomDatabase() {
                 Room.databaseBuilder(
                     context.applicationContext,
                     RSDatabase::class.java,
-                    "RSDatabase"
+                    "KrsDatabase"
                 )
                     .build().also { Instance = it }
             })
