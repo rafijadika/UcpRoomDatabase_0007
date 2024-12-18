@@ -5,12 +5,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.ucp2.data.dao.DokterDao
+import com.example.ucp2.data.dao.JadwalDao
 import com.example.ucp2.data.entity.Dokter
 
 
 @Database(entities = [Dokter::class], version = 1, exportSchema = false)
 abstract class RSDatabase : RoomDatabase() {
     abstract fun dokterDao(): DokterDao
+    abstract fun jadwalDao(): JadwalDao
 
     companion object{
         @Volatile
@@ -21,7 +23,7 @@ abstract class RSDatabase : RoomDatabase() {
                 Room.databaseBuilder(
                     context.applicationContext,
                     RSDatabase::class.java,
-                    "KrsDatabase"
+                    "RSDatabase"
                 )
                     .build().also { Instance = it }
             })
